@@ -57,14 +57,14 @@ export default function App() {
 
   useEffect(() => {
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if(session?.access_token !== serverSession?.access_token) {
+      if (session?.access_token !== serverSession?.access_token ) {
         revalidator.revalidate()
       }
     })
 
     return () => subscription?.unsubscribe()
-
   }, [])
+
 
   return (
     <html lang="en">
